@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import FontDropDemo from '@/components/FontDropDemo';
 import Link from 'next/link';
 
 const CheckIcon = () => (

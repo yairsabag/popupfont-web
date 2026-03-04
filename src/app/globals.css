@@ -255,4 +255,24 @@ html { scroll-behavior: smooth; }
   .features-grid, .pricing-grid { grid-template-columns: 1fr; }
   .download-buttons { flex-direction: column; align-items: center; }
   .landing-footer { flex-direction: column; gap: 12px; text-align: center; }
+  .legal-container { padding: 40px 20px; }
 }
+
+/* Footer links */
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color .2s; }
+.footer-links a:hover { color: var(--green); }
+
+/* Legal pages */
+.legal-page { padding-top: 80px; min-height: calc(100vh - 160px); }
+.legal-container { max-width: 780px; margin: 0 auto; padding: 60px 48px; }
+.legal-container h1 { font-size: 32px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.legal-updated { font-size: 14px; color: var(--text-muted); margin-bottom: 40px; }
+.legal-container h2 { font-size: 20px; font-weight: 600; color: #fff; margin-top: 36px; margin-bottom: 12px; }
+.legal-container h3 { font-size: 16px; font-weight: 600; color: #ccc; margin-top: 20px; margin-bottom: 8px; }
+.legal-container p { font-size: 15px; line-height: 1.7; color: #bbb; margin-bottom: 12px; }
+.legal-container ul { list-style: none; padding: 0; margin: 0 0 16px 0; }
+.legal-container li { font-size: 15px; line-height: 1.7; color: #bbb; padding-left: 20px; position: relative; margin-bottom: 6px; }
+.legal-container li::before { content: "•"; position: absolute; left: 0; color: var(--green); }
+.legal-container a { color: var(--green); text-decoration: none; }
+.legal-container a:hover { text-decoration: underline; }

@@ -236,10 +236,10 @@ export default function LandingPage() {
         <div className="section-inner">
           <h2 className="section-title">Get in Touch</h2>
           <div className="contact-grid">
-            <a href="mailto:hello@fontpop.app" className="contact-card">
+            <a href="mailto:support@fontdrop.app" className="contact-card">
               <div className="contact-icon">✉️</div>
               <h4>Email</h4>
-              <p>hello@fontpop.app</p>
+              <p>support@fontdrop.app</p>
             </a>
             <a href="#" className="contact-card">
               <div className="contact-icon">💬</div>
@@ -264,6 +264,11 @@ export default function LandingPage() {
       <footer className="landing-footer">
         <div className="footer-brand">
           <div className="fi">Fp</div>FontPop
+        </div>
+        <div className="footer-links">
+          <Link href="/privacy">Privacy Policy</Link>
+          <Link href="/terms">Terms of Service</Link>
+          <Link href="/refund">Refund Policy</Link>
         </div>
         <div className="footer-copy">Professional font identification for designers</div>
       </footer>

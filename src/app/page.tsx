@@ -12,10 +12,10 @@ const CheckIcon = () => (
 const features = [
   { title: 'Screen Capture', desc: 'One click to capture any area of your screen. Select the text you want to identify.', icon: 'capture' },
   { title: 'Image Drop', desc: 'Drag and drop any image onto the floating bubble — screenshots, photos, or mockups.', icon: 'image' },
-  { title: 'AI-Powered Recognition', desc: 'GPT vision + 990,000+ font database. Identifies Latin, Hebrew, and more.', icon: 'ai' },
+  { title: 'AI-Powered Recognition', desc: 'GPT vision + 990,000+ font database. Identifies fonts in any language — Latin, Cyrillic, Arabic, CJK, and more.', icon: 'ai' },
   { title: 'Free Alternatives', desc: 'Get 3 free alternatives from Google Fonts with similarity scores for every match.', icon: 'free' },
   { title: 'One-Click Download', desc: 'Free fonts download instantly. Paid fonts link directly to the foundry page.', icon: 'download' },
-  { title: 'Hebrew Font Expert', desc: 'First tool specializing in Israeli typography — AlefAlefAlef, HaGilda, FontBit.', icon: 'hebrew' },
+  { title: 'Multi-Language Support', desc: 'Identifies fonts in any script — Latin, Cyrillic, Arabic, Chinese, Japanese, Korean, and more.', icon: 'hebrew' },
   { title: 'Floating Bubble', desc: 'Always-on-top desktop bubble. Drag anywhere. There when you need it.', icon: 'bubble' },
   { title: 'Paste from Clipboard', desc: 'Copy any screenshot, press Cmd+V on the bubble. Works with any tool.', icon: 'clipboard' },
 ];
@@ -26,7 +26,7 @@ const featureIcons: Record<string, React.ReactNode> = {
   ai: <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="16" stroke="#1ed760" strokeWidth="2"/><path d="M20 20c0-2.2 1.8-4 4-4s4 1.8 4 4-4 8-4 8" stroke="#1ed760" strokeWidth="2"/><circle cx="24" cy="34" r="1.5" fill="#1ed760"/></svg>,
   free: <svg viewBox="0 0 48 48" fill="none"><path d="M12 24h24M24 12v24" stroke="#1ed760" strokeWidth="2"/><circle cx="24" cy="24" r="16" stroke="#1ed760" strokeWidth="2"/></svg>,
   download: <svg viewBox="0 0 48 48" fill="none"><path d="M24 8v24" stroke="#1ed760" strokeWidth="2"/><path d="M16 24l8 8 8-8" stroke="#1ed760" strokeWidth="2"/><path d="M8 36h32" stroke="#1ed760" strokeWidth="2"/></svg>,
-  hebrew: <svg viewBox="0 0 48 48" fill="none"><text x="8" y="36" fontFamily="serif" fontSize="30" fontWeight="bold" fill="#1ed760">אב</text></svg>,
+  hebrew: <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="14" stroke="#1ed760" strokeWidth="2"/><ellipse cx="24" cy="24" rx="8" ry="14" stroke="#1ed760" strokeWidth="2"/><line x1="10" y1="24" x2="38" y2="24" stroke="#1ed760" strokeWidth="2"/></svg>,
   bubble: <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="14" stroke="#1ed760" strokeWidth="2"/><circle cx="24" cy="24" r="6" fill="#1ed760" opacity=".2"/><circle cx="24" cy="24" r="3" fill="#1ed760"/></svg>,
   clipboard: <svg viewBox="0 0 48 48" fill="none"><rect x="8" y="12" width="32" height="24" rx="3" stroke="#1ed760" strokeWidth="2"/><path d="M16 24h16M16 30h10" stroke="#1ed760" strokeWidth="2"/></svg>,
 };
@@ -35,23 +35,23 @@ const sources = [
   { name: 'Google Fonts', count: '1,900+ free', color: '#4285F4', icon: <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#4285F4" strokeWidth="1.5"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg> },
   { name: 'WhatFontIs', count: '990K+ indexed', color: '#FF6B35', icon: <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" strokeWidth="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> },
   { name: 'Adobe Fonts', count: '25K+ premium', color: '#FF0000', icon: <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#FF0000" strokeWidth="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg> },
-  { name: 'AlefAlefAlef', count: 'Hebrew specialist', color: '#fff', icon: <span style={{ fontSize: 32, color: '#fff' }}>אאא</span> },
+  { name: 'Fontshare', count: '100+ free families', color: '#fff', icon: <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg> },
   { name: 'MyFonts', count: '270K+ commercial', color: '#E91E8C', icon: <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#E91E8C" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg> },
 ];
 
 const pricingPlans = [
-  { name: 'Free Trial', price: '0', period: '30 days', devices: '1 Computer', popular: false, btnText: 'Download & Start Trial', features: ['Full access to all features', 'Unlimited identifications', 'AI-powered recognition', 'Free font downloads', 'Hebrew font support'] },
-  { name: 'Basic', price: '9', period: 'per month', devices: '2 Computers', popular: true, btnText: 'Purchase', features: ['Full access to all features', 'Unlimited identifications', 'AI-powered recognition', 'Free font downloads', 'Hebrew font support', 'Subscription management'] },
-  { name: 'Pro', price: '15', period: 'per month', devices: '3 Computers', popular: false, btnText: 'Purchase', features: ['Full access to all features', 'Unlimited identifications', 'AI-powered recognition', 'Free font downloads', 'Hebrew font support', 'Up to 3 devices'] },
+  { name: 'Free Trial', price: '0', period: '30 days', devices: '1 Computer', popular: false, btnText: 'Download & Start Trial', features: ['Full access to all features', 'Unlimited identifications', 'AI-powered recognition', 'Free font downloads', 'Multi-language support'] },
+  { name: 'Basic', price: '9', period: 'per month', devices: '2 Computers', popular: true, btnText: 'Purchase', features: ['Full access to all features', 'Unlimited identifications', 'AI-powered recognition', 'Free font downloads', 'Multi-language support', 'Subscription management'] },
+  { name: 'Pro', price: '15', period: 'per month', devices: '3 Computers', popular: false, btnText: 'Purchase', features: ['Full access to all features', 'Unlimited identifications', 'AI-powered recognition', 'Free font downloads', 'Multi-language support', 'Up to 3 devices'] },
 ];
 
 const faqItems = [
   { q: 'I get a warning when opening the app. What should I do?', a: 'This is normal on macOS. Right-click the app → Open → confirm. Enable Screen Recording in System Settings → Privacy & Security.' },
   { q: 'How accurate is the font identification?', a: 'AI + 990,000+ fonts. Above 90% for clear images. For rare fonts, we show closest matches and free alternatives.' },
-  { q: 'Does it work with Hebrew fonts?', a: 'Yes! First tool specializing in Hebrew — AlefAlefAlef, HaGilda, FontBit, Hafontia, and more.' },
+  { q: 'What languages does it support?', a: 'FontDrop identifies fonts in any script — Latin, Cyrillic, Arabic, Chinese, Japanese, Korean, Hebrew, and more.' },
   { q: 'How much does it cost?', a: 'Free 30-day trial. Basic $9/mo (2 computers), Pro $15/mo (3 computers). Cancel anytime.' },
   { q: 'Is Windows supported?', a: 'macOS 12+ only for now. Windows coming soon.' },
-  { q: 'How is fontdrop different from WhatTheFont?', a: 'Native desktop bubble, no browser needed. AI + databases, Hebrew specialist, free alternatives for every match.' },
+  { q: 'How is fontdrop different from WhatTheFont?', a: 'Native desktop bubble, no browser needed. AI + databases, multi-language support, free alternatives for every match.' },
 ];
 
 export default function LandingPage() {
@@ -66,7 +66,7 @@ export default function LandingPage() {
       <nav className="landing-nav">
         <Link href="/" className="nav-logo">
           <div className="nav-logo-icon">Fd</div>
-          <span className="nav-logo-text">fontdrop</span>
+          <span className="nav-logo-text">FontDrop</span>
         </Link>
         <ul className="nav-links">
           <li><a href="#pricing" className="nav-download">Download</a></li>

@@ -20,7 +20,7 @@ const features = [
   { title: 'Paste from Clipboard', desc: 'Copy any screenshot, press Cmd+V on the bubble. Works with any tool.', icon: 'clipboard' },
 ];
 
-const featureIcons: Record<string, JSX.Element> = {
+const featureIcons: Record<string, React.ReactNode> = {
   capture: <svg viewBox="0 0 48 48" fill="none"><rect x="6" y="6" width="36" height="36" rx="4" stroke="#1ed760" strokeWidth="2"/><path d="M18 18l6-6 6 6" stroke="#1ed760" strokeWidth="2"/><circle cx="24" cy="28" r="6" stroke="#1ed760" strokeWidth="2"/></svg>,
   image: <svg viewBox="0 0 48 48" fill="none"><rect x="8" y="8" width="32" height="32" rx="4" stroke="#1ed760" strokeWidth="2"/><path d="M16 32l8-10 6 6 4-8" stroke="#1ed760" strokeWidth="2"/></svg>,
   ai: <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="16" stroke="#1ed760" strokeWidth="2"/><path d="M20 20c0-2.2 1.8-4 4-4s4 1.8 4 4-4 8-4 8" stroke="#1ed760" strokeWidth="2"/><circle cx="24" cy="34" r="1.5" fill="#1ed760"/></svg>,

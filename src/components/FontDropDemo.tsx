@@ -109,9 +109,9 @@ export default function FontDropDemo() {
               <div className="demo-rP">
                 <div className="demo-rLbl">DETECTED FONT</div>
                 <div className="demo-rName">Playfair Display</div>
-                <div className="demo-rMeta"><span className="demo-rConf">Confidence: high</span><span className="demo-rFree">FREE</span></div>
+                <div className="demo-rMeta"><span className="demo-rConf">Confidence: high</span><span className="demo-rPaid">PAID</span></div>
                 <div className="demo-rType">Serif</div>
-                <div className="demo-rDl"><span>↓</span> DOWNLOAD</div>
+                <div className="demo-rBuy"><span>🔍</span> FIND BUY</div>
                 <div className="demo-rBar"><div className="demo-rBarF" /></div>
                 <div className="demo-rAH"><span className="demo-rAL">FREE ALTERNATIVES</span><span className="demo-rAC">3</span></div>
                 {[{n:"Cormorant Garamond",s:"94%"},{n:"Lora",s:"89%"},{n:"EB Garamond",s:"85%"}].map(a=>(

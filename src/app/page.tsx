@@ -100,3 +100,4 @@ export default function LandingPage() {
         <div className="hero-mockup">
           <FontDropDemo />
         </div>
+      </section>

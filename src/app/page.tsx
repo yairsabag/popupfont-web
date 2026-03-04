@@ -51,7 +51,7 @@ const faqItems = [
   { q: 'Does it work with Hebrew fonts?', a: 'Yes! First tool specializing in Hebrew — AlefAlefAlef, HaGilda, FontBit, Hafontia, and more.' },
   { q: 'How much does it cost?', a: 'Free 30-day trial. Basic $9/mo (2 computers), Pro $15/mo (3 computers). Cancel anytime.' },
   { q: 'Is Windows supported?', a: 'macOS 12+ only for now. Windows coming soon.' },
-  { q: 'How is FontPop different from WhatTheFont?', a: 'Native desktop bubble, no browser needed. AI + databases, Hebrew specialist, free alternatives for every match.' },
+  { q: 'How is fontdrop different from WhatTheFont?', a: 'Native desktop bubble, no browser needed. AI + databases, Hebrew specialist, free alternatives for every match.' },
 ];
 
 export default function LandingPage() {
@@ -65,8 +65,8 @@ export default function LandingPage() {
       {/* Nav */}
       <nav className="landing-nav">
         <Link href="/" className="nav-logo">
-          <div className="nav-logo-icon">Fp</div>
-          <span className="nav-logo-text">FontPop</span>
+          <div className="nav-logo-icon">Fd</div>
+          <span className="nav-logo-text">fontdrop</span>
         </Link>
         <ul className="nav-links">
           <li><a href="#pricing" className="nav-download">Download</a></li>
@@ -100,7 +100,7 @@ export default function LandingPage() {
           <div className="mockup-window">
             <div className="mockup-titlebar">
               <div className="mockup-dot r" /><div className="mockup-dot y" /><div className="mockup-dot g" />
-              <div className="mockup-url">fontpop — screen capture</div>
+              <div className="mockup-url">fontdrop — screen capture</div>
             </div>
             <div className="mockup-body">
               <div className="mockup-sample">Aa Bb Gg Rr</div>
@@ -120,7 +120,7 @@ export default function LandingPage() {
               </div>
             </div>
           </div>
-          <div className="mockup-bubble">Fp</div>
+          <div className="mockup-bubble">Fd</div>
         </div>
       </section>
 
@@ -166,12 +166,12 @@ export default function LandingPage() {
       <section id="video" className="landing-section">
         <div className="section-inner">
           <h2 className="section-title">Video Tutorial</h2>
-          <p className="section-subtitle">Learn how to get the most out of FontPop</p>
+          <p className="section-subtitle">Learn how to get the most out of fontdrop</p>
           <div className="video-card">
             <div className="video-play">
               <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3" /></svg>
             </div>
-            <div className="video-label">Watch FontPop in Action</div>
+            <div className="video-label">Watch fontdrop in Action</div>
           </div>
         </div>
       </section>
@@ -248,8 +248,8 @@ export default function LandingPage() {
             </a>
             <a href="#" className="contact-card">
               <div className="contact-icon">🐦</div>
-              <h4>Twitter / X</h4>
-              <p>@fontpopapp</p>
+              <h4>Instergram</h4>
+              <p>@fontdropapp</p>
             </a>
             <a href="#" className="contact-card">
               <div className="contact-icon">📱</div>
@@ -263,7 +263,7 @@ export default function LandingPage() {
       {/* Footer */}
       <footer className="landing-footer">
         <div className="footer-brand">
-          <div className="fi">Fp</div>FontPop
+          <div className="fi">Fd</div>fontdrop
         </div>
         <div className="footer-links">
           <Link href="/privacy">Privacy Policy</Link>

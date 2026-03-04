@@ -6,14 +6,14 @@ export default function RefundPolicy() {
 
       <h2>30-Day Free Trial</h2>
       <p>
-        FontPop offers a full 30-day free trial with access to all features. No payment information is
+        FontDrop offers a full 30-day free trial with access to all features. No payment information is
         required to start the trial, so there is no charge to cancel. We encourage you to thoroughly
         test the application during this period before subscribing.
       </p>
 
       <h2>Subscription Refunds</h2>
       <p>
-        If you are not satisfied with FontPop after subscribing, you may request a full refund within
+        If you are not satisfied with FontDrop after subscribing, you may request a full refund within
         14 days of your first payment. No questions asked. To request a refund, email us at{' '}
         <a href="mailto:support@fontdrop.app">support@fontdrop.app</a> with the email address
         associated with your account.

@@ -8,7 +8,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "FontPop — Identify Any Font Instantly",
+  title: "FontDrop — Identify Any Font Instantly",
   description: "Professional desktop app for identifying fonts from any image, screenshot, or website. AI-powered with 990,000+ font database.",
 };
 

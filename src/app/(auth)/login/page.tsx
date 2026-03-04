@@ -35,7 +35,7 @@ export default function LoginPage() {
   return (
     <div className="bg-[#1e1e1e] rounded-2xl p-8 border border-[#2a2a2a]">
       <h1 className="text-2xl font-bold text-white text-center mb-2">Welcome back</h1>
-      <p className="text-gray-500 text-center mb-8">Sign in to your FontPop account</p>
+      <p className="text-gray-500 text-center mb-8">Sign in to your FontDrop account</p>
 
       {error && (
         <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-3 mb-6 text-red-400 text-sm text-center">

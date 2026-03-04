@@ -6,14 +6,14 @@ export default function TermsOfService() {
 
       <h2>1. Acceptance of Terms</h2>
       <p>
-        By accessing or using FontPop (the &quot;Service&quot;), including the fontdrop.app website and
-        the FontPop desktop application, you agree to be bound by these Terms of Service. If you do not
+        By accessing or using FontDrop (the &quot;Service&quot;), including the fontdrop.app website and
+        the FontDrop desktop application, you agree to be bound by these Terms of Service. If you do not
         agree to these terms, do not use the Service.
       </p>
 
       <h2>2. Description of Service</h2>
       <p>
-        FontPop is a desktop application for macOS that identifies fonts from images, screenshots,
+        FontDrop is a desktop application for macOS that identifies fonts from images, screenshots,
         and screen captures using AI-powered recognition. The Service includes font matching, free
         alternative suggestions, and links to font download sources.
       </p>
@@ -55,19 +55,19 @@ export default function TermsOfService() {
 
       <h2>6. Intellectual Property</h2>
       <p>
-        The FontPop application, website, branding, and all related content are the intellectual property
-        of FontPop and are protected by copyright and trademark laws. Your subscription grants you a
+        The FontDrop application, website, branding, and all related content are the intellectual property
+        of FontDrop and are protected by copyright and trademark laws. Your subscription grants you a
         limited, non-exclusive, non-transferable license to use the application.
       </p>
       <p>
-        Fonts identified or suggested by FontPop are the property of their respective owners. FontPop
+        Fonts identified or suggested by FontDrop are the property of their respective owners. FontDrop
         does not grant any license to use third-party fonts — you must comply with each font&apos;s
         licensing terms.
       </p>
 
       <h2>7. Third-Party Services</h2>
       <p>
-        FontPop relies on third-party services including OpenAI for AI processing and various font
+        FontDrop relies on third-party services including OpenAI for AI processing and various font
         databases for matching. We are not responsible for the availability or accuracy of third-party
         services. Font identification results are provided as suggestions and may not always be accurate.
       </p>
@@ -82,7 +82,7 @@ export default function TermsOfService() {
 
       <h2>9. Limitation of Liability</h2>
       <p>
-        To the maximum extent permitted by law, FontPop shall not be liable for any indirect, incidental,
+        To the maximum extent permitted by law, FontDrop shall not be liable for any indirect, incidental,
         special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred
         directly or indirectly. Our total liability for any claim arising from the Service shall not
         exceed the amount you paid us in the 12 months prior to the claim.

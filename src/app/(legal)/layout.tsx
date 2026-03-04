@@ -6,8 +6,8 @@ export default function LegalLayout({ children }: { children: React.ReactNode })
       <div className="green-line" />
       <nav className="landing-nav">
         <Link href="/" className="nav-logo">
-          <div className="nav-logo-icon">Fp</div>
-          <span className="nav-logo-text">FontPop</span>
+          <div className="nav-logo-icon">Fd</div>
+          <span className="nav-logo-text">FontDrop</span>
         </Link>
         <ul className="nav-links">
           <li><Link href="/#pricing" className="nav-download">Download</Link></li>
@@ -21,7 +21,7 @@ export default function LegalLayout({ children }: { children: React.ReactNode })
       </main>
       <footer className="landing-footer">
         <div className="footer-brand">
-          <div className="fi">Fp</div>FontPop
+          <div className="fi">Fd</div>FontDrop
         </div>
         <div className="footer-links">
           <Link href="/privacy">Privacy Policy</Link>

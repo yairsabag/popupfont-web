@@ -6,7 +6,7 @@ export default function PrivacyPolicy() {
 
       <h2>1. Introduction</h2>
       <p>
-        FontPop (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) operates the fontdrop.app website and the FontPop
+        FontDrop (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) operates the fontdrop.app website and the FontDrop
         desktop application (together, the &quot;Service&quot;). This Privacy Policy explains how we collect,
         use, and protect your information when you use our Service.
       </p>
@@ -25,7 +25,7 @@ export default function PrivacyPolicy() {
       </p>
       <h3>Images You Process</h3>
       <p>
-        When you use FontPop to identify fonts, your images are sent to third-party AI services (OpenAI)
+        When you use FontDrop to identify fonts, your images are sent to third-party AI services (OpenAI)
         for analysis. We do not store your images on our servers. Images are transmitted solely for the
         purpose of font recognition and are not retained after processing.
       </p>

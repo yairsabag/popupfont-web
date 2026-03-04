@@ -64,7 +64,7 @@ export default function AccountPage() {
       <nav className="border-b border-[#2a2a2a] px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 bg-[#1ed760] rounded-lg flex items-center justify-center text-[#0d0d0d] font-black text-sm">Fp</div>
-          <span className="text-white font-bold text-lg">FontPop</span>
+          <span className="text-white font-bold text-lg">FontDrop</span>
         </div>
         <div className="flex items-center gap-4">
           <span className="text-[#999] text-sm">{user?.name || user?.email}</span>

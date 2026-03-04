@@ -10,7 +10,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
           <div className="w-12 h-12 bg-[#1ed760] rounded-xl flex items-center justify-center text-[#0d0d0d] font-black text-lg">
             Fp
           </div>
-          <span className="text-white font-extrabold text-2xl">FontPop</span>
+          <span className="text-white font-extrabold text-2xl">FontDrop</span>
         </Link>
         <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-2xl p-8">
           {children}

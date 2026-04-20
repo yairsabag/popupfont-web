@@ -1,8 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import FontDropDemo from '@/components/FontDropDemo';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
+const IconDropDemo = dynamic(() => import('@/components/IconDropDemo'), { ssr: false });
 
 const CheckIcon = () => (
   <div className="pcheck">
@@ -11,48 +12,49 @@ const CheckIcon = () => (
 );
 
 const features = [
-  { title: 'Screen Capture', desc: 'One click to capture any area of your screen. Select the text you want to identify.', icon: 'capture' },
-  { title: 'Image Drop', desc: 'Drag and drop any image onto the floating bubble — screenshots, photos, or mockups.', icon: 'image' },
-  { title: 'AI-Powered Recognition', desc: 'GPT vision + 990,000+ font database. Identifies fonts in any language — Latin, Cyrillic, Arabic, CJK, and more.', icon: 'ai' },
-  { title: 'Free Alternatives', desc: 'Get 3 free alternatives from Google Fonts with similarity scores for every match.', icon: 'free' },
-  { title: 'One-Click Download', desc: 'Free fonts download instantly. Paid fonts link directly to the foundry page.', icon: 'download' },
-  { title: 'Multi-Language Support', desc: 'Identifies fonts in any script — Latin, Cyrillic, Arabic, Chinese, Japanese, Korean, and more.', icon: 'hebrew' },
-  { title: 'Floating Bubble', desc: 'Always-on-top desktop bubble. Drag anywhere. There when you need it.', icon: 'bubble' },
-  { title: 'Paste from Clipboard', desc: 'Copy any screenshot, press Cmd+V on the bubble. Works with any tool.', icon: 'clipboard' },
+  { title: 'Screen Capture', desc: 'One click to capture any area of your screen. Select the icon you want to identify — from any app, website, or mockup.', icon: 'capture' },
+  { title: 'Image Drop', desc: 'Drag and drop any image onto the floating bubble — screenshots, Figma exports, or design files.', icon: 'image' },
+  { title: 'AI-Powered Recognition', desc: 'CLIP visual AI + 200,000+ icon database. Identifies icons from any pack instantly with no internet delay.', icon: 'ai' },
+  { title: 'Copy SVG Instantly', desc: 'One click to copy the SVG source. Clean, optimized, ready to paste into your code or Figma.', icon: 'svg' },
+  { title: 'Copy React Import', desc: 'Get the exact import statement for lucide-react, heroicons, tabler, phosphor and more. Paste and ship.', icon: 'react' },
+  { title: 'Browse Full Pack', desc: 'Explore the entire icon pack of any match. Find the perfect variant — outline, fill, solid, duotone.', icon: 'browse' },
+  { title: 'Floating Bubble', desc: 'Always-on-top desktop bubble. Drag anywhere on your screen. There when you need it, gone when you don\'t.', icon: 'bubble' },
+  { title: 'Style Matching', desc: 'Find the same icon across multiple packs. Switch between heroicons, tabler, lucide without losing consistency.', icon: 'style' },
 ];
 
 const featureIcons: Record<string, React.ReactNode> = {
-  capture: <svg viewBox="0 0 48 48" fill="none"><rect x="6" y="6" width="36" height="36" rx="4" stroke="#1ed760" strokeWidth="2"/><path d="M18 18l6-6 6 6" stroke="#1ed760" strokeWidth="2"/><circle cx="24" cy="28" r="6" stroke="#1ed760" strokeWidth="2"/></svg>,
-  image: <svg viewBox="0 0 48 48" fill="none"><rect x="8" y="8" width="32" height="32" rx="4" stroke="#1ed760" strokeWidth="2"/><path d="M16 32l8-10 6 6 4-8" stroke="#1ed760" strokeWidth="2"/></svg>,
-  ai: <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="16" stroke="#1ed760" strokeWidth="2"/><path d="M20 20c0-2.2 1.8-4 4-4s4 1.8 4 4-4 8-4 8" stroke="#1ed760" strokeWidth="2"/><circle cx="24" cy="34" r="1.5" fill="#1ed760"/></svg>,
-  free: <svg viewBox="0 0 48 48" fill="none"><path d="M12 24h24M24 12v24" stroke="#1ed760" strokeWidth="2"/><circle cx="24" cy="24" r="16" stroke="#1ed760" strokeWidth="2"/></svg>,
-  download: <svg viewBox="0 0 48 48" fill="none"><path d="M24 8v24" stroke="#1ed760" strokeWidth="2"/><path d="M16 24l8 8 8-8" stroke="#1ed760" strokeWidth="2"/><path d="M8 36h32" stroke="#1ed760" strokeWidth="2"/></svg>,
-  hebrew: <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="14" stroke="#1ed760" strokeWidth="2"/><ellipse cx="24" cy="24" rx="8" ry="14" stroke="#1ed760" strokeWidth="2"/><line x1="10" y1="24" x2="38" y2="24" stroke="#1ed760" strokeWidth="2"/></svg>,
-  bubble: <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="14" stroke="#1ed760" strokeWidth="2"/><circle cx="24" cy="24" r="6" fill="#1ed760" opacity=".2"/><circle cx="24" cy="24" r="3" fill="#1ed760"/></svg>,
-  clipboard: <svg viewBox="0 0 48 48" fill="none"><rect x="8" y="12" width="32" height="24" rx="3" stroke="#1ed760" strokeWidth="2"/><path d="M16 24h16M16 30h10" stroke="#1ed760" strokeWidth="2"/></svg>,
+  capture: <svg viewBox="0 0 48 48" fill="none"><rect x="6" y="6" width="36" height="36" rx="4" stroke="#6C63FF" strokeWidth="2"/><path d="M18 18l6-6 6 6" stroke="#6C63FF" strokeWidth="2"/><circle cx="24" cy="28" r="6" stroke="#6C63FF" strokeWidth="2"/></svg>,
+  image:   <svg viewBox="0 0 48 48" fill="none"><rect x="8" y="8" width="32" height="32" rx="4" stroke="#6C63FF" strokeWidth="2"/><path d="M16 32l8-10 6 6 4-8" stroke="#6C63FF" strokeWidth="2"/></svg>,
+  ai:      <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="16" stroke="#6C63FF" strokeWidth="2"/><path d="M20 20c0-2.2 1.8-4 4-4s4 1.8 4 4-4 8-4 8" stroke="#6C63FF" strokeWidth="2"/><circle cx="24" cy="34" r="1.5" fill="#6C63FF"/></svg>,
+  svg:     <svg viewBox="0 0 48 48" fill="none"><path d="M10 24h28M24 10v28" stroke="#6C63FF" strokeWidth="2"/><rect x="14" y="14" width="20" height="20" rx="3" stroke="#6C63FF" strokeWidth="2"/></svg>,
+  react:   <svg viewBox="0 0 48 48" fill="none"><ellipse cx="24" cy="24" rx="18" ry="8" stroke="#6C63FF" strokeWidth="2"/><ellipse cx="24" cy="24" rx="18" ry="8" stroke="#6C63FF" strokeWidth="2" transform="rotate(60 24 24)"/><ellipse cx="24" cy="24" rx="18" ry="8" stroke="#6C63FF" strokeWidth="2" transform="rotate(120 24 24)"/><circle cx="24" cy="24" r="3" fill="#6C63FF"/></svg>,
+  browse:  <svg viewBox="0 0 48 48" fill="none"><rect x="6" y="6" width="14" height="14" rx="2" stroke="#6C63FF" strokeWidth="2"/><rect x="28" y="6" width="14" height="14" rx="2" stroke="#6C63FF" strokeWidth="2"/><rect x="6" y="28" width="14" height="14" rx="2" stroke="#6C63FF" strokeWidth="2"/><rect x="28" y="28" width="14" height="14" rx="2" stroke="#6C63FF" strokeWidth="2"/></svg>,
+  bubble:  <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="14" stroke="#6C63FF" strokeWidth="2"/><circle cx="24" cy="24" r="6" fill="#6C63FF" opacity=".2"/><circle cx="24" cy="24" r="3" fill="#6C63FF"/></svg>,
+  style:   <svg viewBox="0 0 48 48" fill="none"><circle cx="16" cy="24" r="8" stroke="#6C63FF" strokeWidth="2"/><circle cx="32" cy="24" r="8" stroke="#6C63FF" strokeWidth="2"/><path d="M20 24h8" stroke="#6C63FF" strokeWidth="2"/></svg>,
 };
 
 const sources = [
-  { name: 'Google Fonts', count: '1,900+ free', color: '#4285F4', icon: <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#4285F4" strokeWidth="1.5"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg> },
-  { name: 'WhatFontIs', count: '990K+ indexed', color: '#FF6B35', icon: <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" strokeWidth="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> },
-  { name: 'Adobe Fonts', count: '25K+ premium', color: '#FF0000', icon: <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#FF0000" strokeWidth="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg> },
-  { name: 'Fontshare', count: '100+ free families', color: '#fff', icon: <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg> },
-  { name: 'MyFonts', count: '270K+ commercial', color: '#E91E8C', icon: <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#E91E8C" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg> },
+  { name: 'Lucide', count: '1,700+ icons', color: '#F5A623', icon: <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#F5A623" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l2.5 2.5L16 9"/></svg> },
+  { name: 'Heroicons', count: '292 icons', color: '#7C3AED', icon: <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" strokeWidth="1.5"><path d="M3 12l9-9 9 9M5 10v9h5v-6h4v6h5v-9"/></svg> },
+  { name: 'Tabler', count: '5,000+ icons', color: '#0EA5E9', icon: <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#0EA5E9" strokeWidth="1.5"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg> },
+  { name: 'Phosphor', count: '9,000+ icons', color: '#EC4899', icon: <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#EC4899" strokeWidth="1.5"><circle cx="12" cy="12" r="8"/><path d="M9 9h6v4a3 3 0 01-6 0V9z"/></svg> },
+  { name: 'Material', count: '15,000+ icons', color: '#4285F4', icon: <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#4285F4" strokeWidth="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg> },
+  { name: '+ 30 more', count: '200k+ total', color: '#6C63FF', icon: <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#6C63FF" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg> },
 ];
 
 const pricingPlans = [
-  { name: 'Free Trial', price: '0', period: '30 days', devices: '1 Computer', popular: false, btnText: 'Download & Start Trial', features: ['Full access to all features', 'Unlimited identifications', 'AI-powered recognition', 'Free font downloads', 'Multi-language support'] },
-  { name: 'Basic', price: '9', period: 'per month', devices: '2 Computers', popular: true, btnText: 'Purchase', features: ['Full access to all features', 'Unlimited identifications', 'AI-powered recognition', 'Free font downloads', 'Multi-language support', 'Subscription management'] },
-  { name: 'Pro', price: '15', period: 'per month', devices: '3 Computers', popular: false, btnText: 'Purchase', features: ['Full access to all features', 'Unlimited identifications', 'AI-powered recognition', 'Free font downloads', 'Multi-language support', 'Up to 3 devices'] },
+  { name: 'Free Trial', price: '0', period: '30 days', devices: '1 Computer', popular: false, btnText: 'Download & Start Trial', features: ['Full access to all features', 'Unlimited identifications', 'AI-powered recognition', 'Copy SVG, React & HTML', 'Browse 200k+ icons'] },
+  { name: 'Basic', price: '9', period: 'per month', devices: '2 Computers', popular: true, btnText: 'Purchase', features: ['Full access to all features', 'Unlimited identifications', 'AI-powered recognition', 'Copy SVG, React & HTML', 'Browse 200k+ icons', 'Subscription management'] },
+  { name: 'Pro', price: '15', period: 'per month', devices: '3 Computers', popular: false, btnText: 'Purchase', features: ['Full access to all features', 'Unlimited identifications', 'AI-powered recognition', 'Copy SVG, React & HTML', 'Browse 200k+ icons', 'Up to 3 devices'] },
 ];
 
 const faqItems = [
   { q: 'I get a warning when opening the app. What should I do?', a: 'This is normal on macOS. Right-click the app → Open → confirm. Enable Screen Recording in System Settings → Privacy & Security.' },
-  { q: 'How accurate is the font identification?', a: 'AI + 990,000+ fonts. Above 90% for clear images. For rare fonts, we show closest matches and free alternatives.' },
-  { q: 'What languages does it support?', a: 'FontDrop identifies fonts in any script — Latin, Cyrillic, Arabic, Chinese, Japanese, Korean, Hebrew, and more.' },
-  { q: 'How much does it cost?', a: 'Free 30-day trial. Basic $9/mo (2 computers), Pro $15/mo (3 computers). Cancel anytime.' },
+  { q: 'How accurate is the icon identification?', a: 'Our CLIP visual AI achieves 90%+ accuracy on clean icon images. For ambiguous icons we show the closest visual matches across multiple packs.' },
+  { q: 'Which icon packs are supported?', a: 'IconDrop supports 30+ packs including Lucide, Heroicons, Tabler, Phosphor, Material Symbols, MDI, Remix Icons, and more — 200,000+ icons total.' },
+  { q: 'Can I copy the React import directly?', a: 'Yes. IconDrop generates the exact import for lucide-react, @heroicons/react, @tabler/icons-react, phosphor-react and more. Just click Copy React.' },
   { q: 'Is Windows supported?', a: 'macOS 12+ only for now. Windows coming soon.' },
-  { q: 'How is fontdrop different from WhatTheFont?', a: 'Native desktop bubble, no browser needed. AI + databases, multi-language support, free alternatives for every match.' },
+  { q: 'How is IconDrop different from searching Iconify directly?', a: 'You start from a visual — a screenshot or design file. No need to know the icon name. IconDrop identifies it and puts the SVG or React import in your clipboard in one click.' },
 ];
 
 export default function LandingPage() {
@@ -60,31 +62,29 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-[#0d0d0d] text-[#e8e8e8]" style={{ fontFamily: "'Inter', -apple-system, sans-serif" }}>
-      {/* Green line */}
-      <div className="green-line" />
+      <div className="purple-line" />
 
       {/* Nav */}
       <nav className="landing-nav">
-        <Link href="/" className="nav-logo">
-          <div className="nav-logo-icon">Fd</div>
-          <span className="nav-logo-text">FontDrop</span>
-        </Link>
+        <a href="/" className="nav-logo">
+          <div className="nav-logo-icon">Id</div>
+          <span className="nav-logo-text">IconDrop</span>
+        </a>
         <ul className="nav-links">
           <li><a href="#pricing" className="nav-download">Download</a></li>
-          <li><a href="#sources">Supported Sources</a></li>
+          <li><a href="#sources">Icon Packs</a></li>
           <li><a href="#features">Features</a></li>
           <li><a href="#video">Tutorials</a></li>
           <li><a href="#pricing">Pricing</a></li>
           <li><a href="#contact">Contact</a></li>
           <li><a href="#faq">Help</a></li>
-          <li><Link href="/account" className="nav-account">My Account</Link></li>
         </ul>
       </nav>
 
       {/* Hero */}
       <section className="hero">
         <div className="hero-content">
-          <h1>Professional App for Identifying Fonts from Any Image or Screenshot</h1>
+          <h1>Identify Any Icon from a Screenshot — Copy SVG or React in One Click</h1>
           <p className="hero-sub">Download now for 30 days free trial</p>
           <div className="download-buttons">
             <a href="https://github.com/yairsabag/fontdrop-releases/releases/download/v1.0.1/FontDrop-1.0.0-Installer.dmg" className="download-btn">
@@ -98,7 +98,7 @@ export default function LandingPage() {
           </div>
         </div>
         <div className="hero-mockup">
-          <FontDropDemo />
+          <IconDropDemo />
         </div>
       </section>
 
@@ -107,7 +107,8 @@ export default function LandingPage() {
       {/* Sources */}
       <section id="sources" className="landing-section">
         <div className="section-inner">
-          <h2 className="section-title">Supported Font Sources</h2>
+          <h2 className="section-title">Supported Icon Packs</h2>
+          <p className="section-subtitle">200,000+ icons across 30+ packs — all identified instantly</p>
           <div className="sources-grid">
             {sources.map((s) => (
               <div key={s.name} className="source-card">
@@ -144,12 +145,12 @@ export default function LandingPage() {
       <section id="video" className="landing-section">
         <div className="section-inner">
           <h2 className="section-title">Video Tutorial</h2>
-          <p className="section-subtitle">Learn how to get the most out of fontdrop</p>
+          <p className="section-subtitle">See how IconDrop fits into your design workflow</p>
           <div className="video-card">
             <div className="video-play">
               <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3" /></svg>
             </div>
-            <div className="video-label">Watch fontdrop in Action</div>
+            <div className="video-label">Watch IconDrop in Action</div>
           </div>
         </div>
       </section>
@@ -168,9 +169,7 @@ export default function LandingPage() {
                 <div className="pricing-amount"><span className="cur">$</span>{plan.price}</div>
                 <div className="pricing-period">{plan.period}</div>
                 <div className="pricing-devices">{plan.devices}</div>
-                <Link href="/signup">
-                  <button className="pricing-btn">{plan.btnText}</button>
-                </Link>
+                <button className="pricing-btn">{plan.btnText}</button>
                 <div className="pricing-fl">Features you&apos;ll love:</div>
                 <ul>
                   {plan.features.map((feat) => (
@@ -214,10 +213,10 @@ export default function LandingPage() {
         <div className="section-inner">
           <h2 className="section-title">Get in Touch</h2>
           <div className="contact-grid">
-            <a href="mailto:support@fontdrop.app" className="contact-card">
+            <a href="mailto:support@icondrop.app" className="contact-card">
               <div className="contact-icon">✉️</div>
               <h4>Email</h4>
-              <p>support@fontdrop.app</p>
+              <p>support@icondrop.app</p>
             </a>
             <a href="#" className="contact-card">
               <div className="contact-icon">💬</div>
@@ -225,9 +224,9 @@ export default function LandingPage() {
               <p>Chat with our team</p>
             </a>
             <a href="#" className="contact-card">
-              <div className="contact-icon">🐦</div>
-              <h4>Instergram</h4>
-              <p>@fontdropapp</p>
+              <div className="contact-icon">📸</div>
+              <h4>Instagram</h4>
+              <p>@icondropapp</p>
             </a>
             <a href="#" className="contact-card">
               <div className="contact-icon">📱</div>
@@ -241,14 +240,14 @@ export default function LandingPage() {
       {/* Footer */}
       <footer className="landing-footer">
         <div className="footer-brand">
-          <div className="fi">Fd</div>fontdrop
+          <div className="fi">Id</div>icondrop
         </div>
         <div className="footer-links">
-          <Link href="/privacy">Privacy Policy</Link>
-          <Link href="/terms">Terms of Service</Link>
-          <Link href="/refund">Refund Policy</Link>
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+          <a href="/refund">Refund Policy</a>
         </div>
-        <div className="footer-copy">Professional font identification for designers</div>
+        <div className="footer-copy">Professional icon identification for designers &amp; developers</div>
       </footer>
     </div>
   );

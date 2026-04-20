@@ -1,7 +1,7 @@
 {
-  "version": "1.0.0",
-  "url": "https://github.com/yairsabag/fontdrop-releases/releases/download/v1.0.0/FontDrop-1.0.0-Installer.dmg",
-  "notes": "AI-powered font identification for macOS",
+  "version": "1.0.1",
+  "url": "https://github.com/yairsabag/fontdrop-releases/releases/download/v1.0.1/FontDrop-1.0.0-Installer.dmg",
+  "notes": "Signed and notarized release",
   "min_version": "1.0.0",
-  "date": "2026-03-05"
+  "date": "2026-04-20"
 }

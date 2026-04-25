@@ -27,18 +27,20 @@ export async function POST(req: NextRequest) {
     const { databases } = createAdminClient();
     const { databaseId, collections } = APPWRITE_CONFIG;
 
-    // Find subscription where user_id matches device_id
+    // Find all subscriptions for this device, prefer active ones
     const subRes = await databases.listDocuments(databaseId, collections.subscriptions, [
       Query.equal('user_id', device_id),
       Query.orderDesc('$createdAt'),
-      Query.limit(1),
+      Query.limit(20),
     ]);
 
     if (subRes.documents.length === 0) {
       return NextResponse.json({ active: false, reason: 'No subscription found' });
     }
 
-    const sub = subRes.documents[0];
+    // Prefer an active/trialing subscription over a cancelled one
+    const validStatusesForActive = ['active', 'trialing', 'on_trial', 'past_due'];
+    const sub = subRes.documents.find(d => validStatusesForActive.includes(d.status)) || subRes.documents[0];
     const validStatuses = ['active', 'trialing', 'on_trial', 'past_due'];
     const isActive = validStatuses.includes(sub.status);
 

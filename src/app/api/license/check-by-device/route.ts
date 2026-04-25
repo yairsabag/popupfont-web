@@ -47,8 +47,7 @@ export async function POST(req: NextRequest) {
       return false;
     };
     const sub = subRes.documents.find(isStillUsable) || subRes.documents[0];
-    const validStatuses = ['active', 'trialing', 'on_trial', 'past_due'];
-    const isActive = validStatuses.includes(sub.status);
+    const isActive = isStillUsable(sub);
 
     if (!isActive) {
       return NextResponse.json({

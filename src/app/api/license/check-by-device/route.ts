@@ -38,9 +38,15 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ active: false, reason: 'No subscription found' });
     }
 
-    // Prefer an active/trialing subscription over a cancelled one
-    const validStatusesForActive = ['active', 'trialing', 'on_trial', 'past_due'];
-    const sub = subRes.documents.find(d => validStatusesForActive.includes(d.status)) || subRes.documents[0];
+    // Prefer active/trialing, then "cancelled but still in paid period"
+    const now = new Date();
+    const activeStatuses = ['active', 'trialing', 'on_trial', 'past_due'];
+    const isStillUsable = (d: any) => {
+      if (activeStatuses.includes(d.status)) return true;
+      if (d.status === 'cancelled' && d.current_period_end && new Date(d.current_period_end) > now) return true;
+      return false;
+    };
+    const sub = subRes.documents.find(isStillUsable) || subRes.documents[0];
     const validStatuses = ['active', 'trialing', 'on_trial', 'past_due'];
     const isActive = validStatuses.includes(sub.status);
 

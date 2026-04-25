@@ -1,14 +1,14 @@
 'use client';
 export const dynamic = 'force-dynamic';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 
 const BASIC_VARIANT = '1575477';
 const PRO_VARIANT   = '1575461';
 const STORE_NAME    = 'fontdrop'; // fontdrop.lemonsqueezy.com
 
-export default function ActivatePage() {
+function ActivateContent() {
   const searchParams = useSearchParams();
   const [userNumber, setUserNumber] = useState('');
   const [error, setError] = useState('');
@@ -127,5 +127,14 @@ export default function ActivatePage() {
         </div>
       </div>
     </div>
+  );
+}
+
+
+export default function ActivatePage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-[#0d0d0d]" />}>
+      <ActivateContent />
+    </Suspense>
   );
 }

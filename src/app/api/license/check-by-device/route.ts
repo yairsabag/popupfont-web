@@ -59,7 +59,6 @@ export async function POST(req: NextRequest) {
     }
 
     // Check if not expired
-    const now = new Date();
     if (sub.current_period_end && new Date(sub.current_period_end) < now) {
       return NextResponse.json({
         active: false,

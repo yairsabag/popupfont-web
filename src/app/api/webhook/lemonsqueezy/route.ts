@@ -10,15 +10,15 @@ import crypto from 'crypto';
  * Receives webhook events from Lemon Squeezy and updates the database.
  *
  * Events handled:
- *   - subscription_created: create subscription + license key
- *   - subscription_updated: update subscription status
- *   - subscription_cancelled: mark subscription as cancelled
- *   - license_key_created: store the generated license key
+ *   - subscription_created
+ *   - subscription_updated
+ *   - subscription_cancelled
+ *   - license_key_created
  */
 
-const PLAN_BY_VARIANT: Record<string, { name: string; deviceLimit: number }> = {
-  '1575477': { name: 'basic', deviceLimit: 1 },
-  '1575461': { name: 'pro', deviceLimit: 3 },
+const PLAN_BY_VARIANT: Record<string, { name: string; maxDevices: number; priceCents: number }> = {
+  '1575477': { name: 'basic', maxDevices: 1, priceCents: 900 },
+  '1575461': { name: 'pro',   maxDevices: 3, priceCents: 1500 },
 };
 
 function verifySignature(rawBody: string, signature: string, secret: string): boolean {
@@ -66,23 +66,30 @@ export async function POST(req: NextRequest) {
         const attrs = data.attributes;
         const subscriptionId = String(data.id);
         const variantId = String(attrs.variant_id);
-        const plan = PLAN_BY_VARIANT[variantId] || { name: 'basic', deviceLimit: 1 };
+        const productId = String(attrs.product_id || '');
+        const customerId = String(attrs.customer_id || '');
+        const plan = PLAN_BY_VARIANT[variantId] || { name: 'basic', maxDevices: 1, priceCents: 900 };
 
-        // Find existing subscription by ls_subscription_id
+        const userIdFromCustom = customData.device_id || customData.user_id || attrs.user_email;
+
         const existing = await databases.listDocuments(databaseId, collections.subscriptions, [
           Query.equal('ls_subscription_id', subscriptionId),
           Query.limit(1),
         ]);
 
-        const subData = {
+        const subData: Record<string, any> = {
           ls_subscription_id: subscriptionId,
+          ls_customer_id: customerId,
+          ls_variant_id: variantId,
+          ls_product_id: productId,
           status: attrs.status,
           plan: plan.name,
-          device_limit: plan.deviceLimit,
-          customer_email: attrs.user_email,
-          variant_id: variantId,
-          renews_at: attrs.renews_at,
-          ends_at: attrs.ends_at,
+          max_devices: plan.maxDevices,
+          price_cents: plan.priceCents,
+          currency: 'USD',
+          current_period_start: attrs.created_at || null,
+          current_period_end: attrs.renews_at || null,
+          cancelled_at: attrs.ends_at || null,
         };
 
         if (existing.documents.length > 0) {
@@ -97,7 +104,7 @@ export async function POST(req: NextRequest) {
             databaseId,
             collections.subscriptions,
             ID.unique(),
-            { ...subData, user_id: customData.device_id || attrs.user_email }
+            { ...subData, user_id: userIdFromCustom }
           );
         }
         break;
@@ -105,6 +112,7 @@ export async function POST(req: NextRequest) {
 
       case 'subscription_cancelled': {
         const subscriptionId = String(data.id);
+        const attrs = data.attributes;
         const existing = await databases.listDocuments(databaseId, collections.subscriptions, [
           Query.equal('ls_subscription_id', subscriptionId),
           Query.limit(1),
@@ -114,7 +122,10 @@ export async function POST(req: NextRequest) {
             databaseId,
             collections.subscriptions,
             existing.documents[0].$id,
-            { status: 'cancelled' }
+            {
+              status: 'cancelled',
+              cancelled_at: attrs.ends_at || new Date().toISOString(),
+            }
           );
         }
         break;
@@ -123,12 +134,9 @@ export async function POST(req: NextRequest) {
       case 'license_key_created': {
         const attrs = data.attributes;
         const licenseKey = attrs.key;
-        const orderId = String(attrs.order_id);
         const customerEmail = attrs.user_email;
-        const variantId = String(attrs.variant_id);
-        const plan = PLAN_BY_VARIANT[variantId] || { name: 'basic', deviceLimit: 1 };
+        const userIdFromCustom = customData.device_id || customData.user_id || customerEmail;
 
-        // Check if license already exists
         const existing = await databases.listDocuments(databaseId, collections.licenses, [
           Query.equal('license_key', licenseKey),
           Query.limit(1),
@@ -141,14 +149,8 @@ export async function POST(req: NextRequest) {
             ID.unique(),
             {
               license_key: licenseKey,
-              user_id: customData.device_id || customerEmail,
-              customer_email: customerEmail,
-              ls_order_id: orderId,
-              ls_license_id: String(data.id),
-              plan: plan.name,
-              device_limit: plan.deviceLimit,
+              user_id: userIdFromCustom,
               is_active: true,
-              activations: 0,
             }
           );
         }

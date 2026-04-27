@@ -1,7 +1,7 @@
 {
-  "version": "1.0.4",
-  "url": "https://github.com/yairsabag/fontdrop-releases/releases/download/v1.0.4/FontDrop-1.0.4-Installer.dmg",
-  "notes": "Account window with subscription management",
+  "version": "1.0.5",
+  "url": "https://github.com/yairsabag/fontdrop-releases/releases/download/v1.0.5/FontDrop-1.0.5-Installer.dmg",
+  "notes": "Bug fixes and improvements",
   "min_version": "1.0.0",
-  "date": "2026-04-25"
+  "date": "2026-04-26"
 }

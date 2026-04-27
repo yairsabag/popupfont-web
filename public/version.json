@@ -1,7 +1,7 @@
 {
-  "version": "1.0.5",
-  "url": "https://github.com/yairsabag/fontdrop-releases/releases/download/v1.0.5/FontDrop-1.0.5-Installer.dmg",
-  "notes": "Bug fixes and improvements",
-  "min_version": "1.0.0",
-  "date": "2026-04-26"
+  "version": "1.0.6",
+  "url": "https://github.com/yairsabag/fontdrop-releases/releases/download/v1.0.6/FontDrop-1.0.6-Installer.dmg",
+  "notes": "Security update: server-side font identification, no provider API keys inside the desktop app, improved quota handling, and Hebrew index packaging.",
+  "min_version": "1.0.6",
+  "date": "2026-04-28"
 }
